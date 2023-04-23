@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Міжкімнатні двері</title>
+    <!-- Подключаем CSS файл -->
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Подключение FAVICON -->
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/fav.ico">
+
+    <!-- JQUERY -->
+    <script src="script/jquery-3.4.1.min.js"></script>
+    <!-- СКРИПТЫ -->
+    <script src="script/script.js"></script>
+    <!-- SLICK-SLIDER -->
+    <script src="script/slick.min.js"></script>
+    <!-- Подключение jQuery плагина Masked Input -->
+    <script src="script/jquery.maskedinput.min.js"></script>
+    <!-- Подключение иконок FONT AWESOME -->
+    <script src="https://kit.fontawesome.com/ef844c3a38.js" crossorigin="anonymous"></script>
+  </head>
+  <body>
+
+  <!-- Форма заказа дверей при нажатии кнопки КУПИТЬ -->
+  <div class="popup-wrapper__buy-door">
+    <div class="overlay"></div>
+    <div class="popup__buy-door">
+      <div class="popup__content">
+        <span class="popup__content-title">Викликати майстра за вимірами</span>
+        <p class="form-label">Заповніть форму і наш фахівець зв'яжеться з Вами.</p>
+        <!-- Форма -->
+        <form class="popup__form" action="mail.php" method="post">
+
+          <!-- Hidden Required Fields -->
+          <input type="hidden" name="project_name" value="Site Name">
+          <input type="hidden" name="admin_email" value="timedoors2023@gmail.com">
+          <input type="hidden" name="form_subject" value="Виклик майстра за вимірами">
+
+
+          <div class="popup__form-item-box">
+            <input class="popup__form-item Name" type="text" name="Name" value="" placeholder="*Ваше ім'я" required>
+          </div>
+          <div class="popup__form-item-box">
+            <input class="popup__form-item Phone"
+                   name="Phone"
+                   type="tel"
+                   placeholder="*Телефон"
+                   maxlength="50"
+                   autofocus="autofocus"
+                   required="required"
+                   value=""
+                   pattern="((\+38)?\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))">
+          </div>
+          <div class="popup__form-box-button">
+            <input class="popup__form-button" type="submit" name="Form-button" value="Надіслати заявку">
+          </div>
+        </form>
+
+        <p class="popup__note">Усі поля обов'язкові для заповнення</p>
+        <p class="popup__note">
+         Натискаючи на кнопку, ви даєте згоду на обробку своїх персональних даних
+          <a href="#" class="terms-use">Угода користувача</a>
+        </p>
+      </div>
+      <div class="popup__btn-close">
+        &#128938;
+      </div>
+    </div>
+  </div>
+
+
+  <style>
+    .header-logo {
+        max-width: 50%;
+        height: auto;
+    }
+
+    @media screen and (max-width: 468px) {
+        .header-logo {
+            max-width: 50%;
+        }
+    }
+
+    @media screen and (max-width: 480px) {
+        .header-logo {
+            max-width: 30%;
+        }
+    }
+</style>
+
+  <a href="#" class="back-to-top"></a>
+    <header class="header">
+      <a href="#">
+        <img src="img/logo.png" alt="logo" class="header-logo">
+      </a>
+      <nav class="header__navigation">
+        <ul class="nav__list">
+          <li class="nav__list-item">
+            <a href="#Main" class="anchor">Головна</a>
+          </li>
+          <li class="nav__list-item">
+            <a href="#About-us" class="anchor">Про&nbsp;нас</a>
+          </li>
+          <li class="nav__list-item">
+            <a href="#Popular" class="anchor">Популярне</a>
+          </li>
+          <li class="nav__list-item">
+            <a href="#Shares" class="anchor">Акції</a>
+          </li>
+          <li class="nav__list-item">
+            <a href="#Advantages" class="anchor">Переваги</a>
+          </li>
+          <li class="nav__list-item">
+            <a href="#Contacts" class="anchor">Контакти</a>
+          </li>
+        </ul>
+      </nav>
+      <button class="burger">
+        <span></span>
+      </button>
+    </header>
+
+    <main>
+      <section class="main-block" id="Main">
+        <h2 class="visually-hidden">Міжкімнатні двері</h2>
+        <div class="section-image__container">
+          <div class="section-image"></div>
+        </div>
+        <div class="section-image__blackout"></div>
+        <div class="main-block__container-opacity"></div>
+        <div class="main-block__container-content">
+          <h3 class="main-block__container-content_title">
+            Міжкімнатні двері
+          </h3>
+          <div class="main-block__form-container">
+            <form class="main-block__form" action="mail.php" method="post">
+              <!-- Hidden Required Fields -->
+              <input type="hidden" name="project_name" value="Site Name">
+              <input type="hidden" name="admin_email" value="timedoors2023@gmail.com">
+              <input type="hidden" name="form_subject" value="Консультація">
+
+
+              <span class="main-block__form_title">
+                Залиште заявку на безкоштовну консультацію!
+              </span>
+              <input class="main-block__form-name" type="text" name="user_name_cons" placeholder="Введіть Ваше ім'я" value="" required>
+              <input class="main-block__form-mail" type="email" name="user_mail-cons" placeholder="Введіть Ваш e-mail" value="" required>
+              <input class="main-block__form-phone" type="tel" name="user_phone_cons" placeholder="Введіть Ваш телефон" value="" maxlength="50" required pattern="((\+38)?\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))">
+              <button class="main-block__form-submit" type="submit" name="button">Отримати консультацію</button>
+            </form>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="about-us" id="About-us">
+        <h2 class="visually-hidden">Про компанію</h2>
+        <div class="about-us__text">
+          <h2 class="about-us__title">Про компанію &laquo;DoorsTime&raquo;</h2>
+          <span class="about-us__description">
+            Компанія DoorsTime - це професійний постачальник послуг з прихованих дверей. 
+            Наші двері забезпечують безшумне та беззаперечне закриття, дозволяючи нашим клієнтам захистити приватні кімнати від небажаних відвідувачів або навіть від шкідливих шумів. 
+            Ми використовуємо тільки найкращі матеріали та технології для виготовлення наших продуктів, щоб забезпечити надійність та тривалий термін служби. Наша команда професіоналів з радістю допоможе вам вибрати двері, які ідеально підходять для вашого дому або бізнесу, забезпечуючи неперевершений рівень приватності та забезпечення ваших потреб у збереженні конфіденційності. 
+            Довірте свою конфіденційність нам, і ми зробимо все можливе, щоб забезпечити вам спокій та комфорт.
+          </span>
+        </div>
+        <div class="about-us__img-container">
+
+        </div>
+      </section>
+
+
+      <section class="quiz">
+        <h2 class="visually-hidden">Допомога</h2>
+        <div class="quiz-container">
+          <span class="quiz-container__title">
+           Заощаджуйте&nbsp;80% часу&nbsp;на&nbsp;підбір дверей!
+          </span>
+          <span class="quiz-container__text">
+            Дайте відповідь лише на 5 запитань і отримайте знижку на замовлення
+          </span>
+          <div class="quiz-container__button-box">
+            <a href=""  class="quiz-container__button">
+              Моя знижка
+            </a>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="popular-poducts" id="Popular">
+        <h2 class="visually-hidden">Популярні товари</h2>
+        <div class="popular-poducts__container-fixed">
+          <h2 class="popular-poducts__title">Популярні товари</h2>
+          <div class="popular-poducts__grid-box catalog">
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хіт продажів
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/1.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО L6 Беленый дуб</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">4470 &#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хіт продажів
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/2.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО L7 Венге</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">4906 &#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/3.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО Q1 Дуб Скальный</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">5268 &#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/4.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО Q10 Лиственница белая</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">5635 &#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/5.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО Q55 Орех Макадамия</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">4900 &#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/6.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">H4 Окаша Венге</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">6512 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/7.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО Q56 Лиственница крем</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">5268 &#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/8.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО QS2 Клен Айс</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">6643 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/9.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО QX1 Ясень Гриджео</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">6153 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/10.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО QX3 Дуб тортора</div>
+              <div class="catalog-item__stock-availability">&#10004;  У наявності на складі</div>
+              <div class="catalog-item__cost">6153 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/11.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО Глория Итальянский Орех</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">4972 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/12.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО Орхидея Белоснежный</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">5324 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/13.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО Прага мокко глянець матове скло</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">7515 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/14.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПО Сідней червоне дерево, скло Тріумф</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">14280 &#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/15.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">ПГ Q50 Лиственница крем</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">5268 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/16.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">Далас</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">21 900 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/17.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">Вельден</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">18 900 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+            <div class="popular-poducts__grid-item catalog-item">
+              <div class="catalog-item__bestseller">
+                Хит продаж
+              </div>
+              <div class="catalog-item__img-box">
+                <img src="img/18.jpg" alt="#" class="catalog-item__img">
+              </div>
+              <div class="catalog-item__name">Париж</div>
+              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
+              <div class="catalog-item__cost">28 500 	&#8372;</div>
+              <a href="#" class="catalog-item__buy">Купити</a>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <section class="shares" id="Shares">
+        <h2 class="visually-hidden">Акції компанії</h2>
+        <h2 class="shares__title">Акції компанії</h2>
+        <div class="shares__container-fixed">
+          <div class="shares__item">
+            <img src="img/promo_new4.png" alt="promo" class="shares__item-img">
+            <div class="shares__item-description">
+              <a href="#" class="shares__item-description_name">Італійські ручки в подарунок</a>
+              <span class="shares__item-description_date">15.03.2023</span>
+              <p class="shares__item-description_desc">
+                Замовте двері та отримайте італійські дверні ручки в подарунок! <br>
+                Акція діє при замовленні від двох дверей. <br>
+                Деталі акції ви можете уточнити в наших спеціалістів
+              </p>
+            </div>
+          </div>
+          <div class="shares__item">
+            <img src="img/promo_new0a.jpg" alt="promo" class="shares__item-img">
+            <div class="shares__item-description">
+              <a href="#" class="shares__item-description_name">Знижка 40% на монтаж дверей щовівторка</a>
+              <span class="shares__item-description_date">20.04.2023</span>
+              <p class="shares__item-description_desc">
+                Акція діє при купівлі від трьох полотен дверей.<br>
+                Деталі акції ви можете уточнити в наших спеціалістів
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <section class="comment">
+        <h2 class="visually-hidden">Рекомендації людей</h2>
+        <div class="comment__container-fixed">
+          <h3 class="comment__title">Нас рекомендують</h3>
+          <div class="comment__slider">
+
+            <div class="comment__slider-item">
+              <div class="comment__slider-item_img-box">
+                <img src="img/comment-1.jpeg"  class="comment__slider-item_img">
+              </div>
+              <div class="comment__slider-item_review">
+                <h4 class="review__name">Олексій Донець</h4>
+                <span class="review__description">
+                  Хочу висловити щиру подяку фірмі та її співробітникам, які 13.07 встановили нам вхідні двері в будинку на вулиці Північній! Бригада з 4-х чоловік встановлювала двері і портал, демонтувавши старі двері, весь день, ретельно роблячи свою роботу....
+                </span>
+                <span class="review__time">15.01.2023</span>
+              </div>
+            </div>
+
+            <div class="comment__slider-item">
+              <div class="comment__slider-item_img-box">
+                <img src="img/comment-2.jpeg" class="comment__slider-item_img">
+              </div>
+              <div class="comment__slider-item_review">
+                <h4 class="review__name">Максим Запорожець</h4>
+                <span class="review__description">
+                  Велике спасибі фірмі "DoorsTime"! Замовляв двері у свій офіс, і був здивований тим, наскільки оперативно спрацювали співробітники. Буквально в день дзвінка приїхав замірник і зробив попередній розрахунок. Хочу приділити окрему увагу дизайну моделі, а також ...
+                </span>
+                <span class="review__time">22.01.2023</span>
+              </div>
+            </div>
+
+            <div class="comment__slider-item">
+              <div class="comment__slider-item_img-box">
+                <img src="img/no-img-comment.jpg" class="comment__slider-item_img">
+              </div>
+              <div class="comment__slider-item_review">
+                <h4 class="review__name">Леонід Касаткін</h4>
+                <span class="review__description">
+                  Замовляв приховані двері моделі XN у свій кабінет. Такого захоплення я ще не відчував! Завжди мріяв почуватися так, немов перебуваю в таємній кімнаті якогось готичного замку, але тут - хоч і не замок, але сховатися від співробітників відмінно вдасться...
+                </span>
+                <span class="review__time">19.02.2023</span>
+              </div>
+            </div>
+
+            <div class="comment__slider-item">
+              <div class="comment__slider-item_img-box">
+                <img src="img/comment-3.jpeg"  class="comment__slider-item_img">
+              </div>
+              <div class="comment__slider-item_review">
+                <h4 class="review__name">Віктор Комаров</h4>
+                <span class="review__description">
+                  Більш ніж задоволений вибором цього магазину. Найширший асортимент, привабливе поводження з клієнтом. Швидкі обміри і не менш швидка доставка. Дякую!
+                </span>
+                <span class="review__time">12.03.2023</span>
+              </div>
+            </div>
+
+            <div class="comment__slider-item">
+              <div class="comment__slider-item_img-box">
+                <img src="img/no-img-comment.jpg" class="comment__slider-item_img">
+              </div>
+              <div class="comment__slider-item_review">
+                <h4 class="review__name">Олексій Буданов</h4>
+                <span class="review__description">
+                  Велике спасибі фірмі "DoorsTime"! Замовляв двері у свій офіс, і був здивований тим, наскільки оперативно спрацювали співробітники. Буквально в день дзвінка приїхав замірник і зробив попередній розрахунок. Хочу приділити окрему увагу дизайну моделі, а також ...
+                </span>
+                <span class="review__time">11.04.2023</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <section class="advantages" id="Advantages">
+        <h2 class="visually-hidden">Переваги</h2>
+        <div class="advantages-container">
+          <h2 class="advantages__title">Чому обирають наші двері?</h2>
+        </div>
+        <div class="advantages__slider">
+          <div class="advantages__item">
+            <div class="advantages__item_img">
+              <img src="img/advantages-1.png" alt="Надійно">
+            </div>
+            <div class="advantages__item_text">
+              <p class="advantages__item_name">Надійно</p>
+              <p class="advantages__item_desc">
+                Гарантія якості 6 років <br>
+                на двері та 18 місяців <br>
+                на монтаж. Післягарантійний <br>
+                сервіс
+              </p>
+            </div>
+          </div>
+
+          <div class="advantages__item">
+            <div class="advantages__item_img">
+              <img src="img/advantages-2.png" alt="Зручно">
+            </div>
+            <div class="advantages__item_text">
+              <p class="advantages__item_name">Зручно</p>
+              <p class="advantages__item_desc">
+                Повний комплекс сервісу <br>
+
+              </p>
+            </div>
+          </div>
+
+          <div class="advantages__item">
+            <div class="advantages__item_img">
+              <img src="img/advantages-3.png" alt="Швидко">
+            </div>
+            <div class="advantages__item_text">
+              <p class="advantages__item_name">Швидко</p>
+              <p class="advantages__item_desc">
+                Власний склад у Києві. <br>
+                В наявності 3000 дверей<br>
+                і комплектуючих до них <br>
+              </p>
+            </div>
+          </div>
+
+          <div class="advantages__item">
+            <div class="advantages__item_img">
+              <img src="img/advantages-4.png" alt="Доступно">
+            </div>
+            <div class="advantages__item_text">
+              <p class="advantages__item_name">Доступно</p>
+              <p class="advantages__item_desc">
+                Тільки прямі поставки <br>
+                від виробників . <br>
+                Офіційний дистриб'ютор  <br>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="Contacts">
+      <div class="footer__container">
+        <div class="footer__item">
+          <ul class="footer__item-contacts">
+            <li class="footer__item-list">
+              <span class="footer-contacts__item-name">
+                Телефон:
+              </span>
+              <a class="footer-contacts__item-phone" href="tel:+380975717373">
+                +380975717373
+              </a>
+            </li>
+            <li class="footer__item-contacts_mail footer__item-list">
+              <span class="footer-contacts__item-name">
+                E-mail:
+              </span>
+              <a class="footer-contacts__item-mail" href="mailto:timedoors2023@gmail.com">
+                timedoors2023@gmail.com
+              </a>
+            </li>
+            <li class="footer__item-contacts_info footer__item-list">
+              <span class="footer-contacts__item-name">
+                Режим роботи:
+              </span>
+              <span class="footer-contacts__item-time">
+                з 10:00 до 21:00
+              </span>
+            </li>
+          </ul>
+        </div>
+        <div class="footer__item -center">
+          <a href="#" class="footer__item-logo">
+            <img src="img/logo.png" alt="">
+          </a>
+          <div class="footer_item-social">
+            <a href="https://www.olx.ua/d/uk/obyavlenie/dver-prihovan-pd-ozdoblennya-IDRIG69.html" target="_blank" class="footer_item-social_truck social__item">
+              <i class="fa fa-2x fa-truck"></i>
+            </a>
+            <a href="https://instagram.com/timedoors2023" target="_blank" class="footer_item-social_inst social__item">
+              <i class="fab fa-2x fa-instagram"></i>
+            </a>
+            <a href="https://youtu.be/tfYXth2zIk0" target="_blank" class="footer_item-social_youtube social__item">
+              <i class="fab fa-2x fa-youtube"></i>
+            </a>
+          </div>
+        </div>
+        <div class="footer__item">
+          <a href="privacy.html" class="footer_item-police" target="_blank">
+            Політика конфіденційності
+          </a>
+          <span class="footer__item-copyright">
+            © 2023. Усі права захищені.
+          </span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="http://localhost:35729/livereload.js"></script>
+  </body>
+</html>
