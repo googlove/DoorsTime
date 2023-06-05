@@ -34,7 +34,7 @@ $(function () {
   });
 
   // Маска телефона
-  $('.Phone').mask("+7(999) 999-99-99");
+  $('.Phone').mask("+38(999) 999-99-99");
 
   // Стрелка обратно наверх
   function backToTop() {
@@ -63,7 +63,7 @@ $(function () {
   });
 
   // Маска для телефона
-  $('.main-block__form-phone').mask("+7(999) 999-99-99");
+  $('.main-block__form-phone').mask("+38(999) 999-99-99");
   function setCursorPosition(pos, e) {
     e.focus();
     if (e.setSelectionRange) e.setSelectionRange(pos, pos);
