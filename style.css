@@ -2204,6 +2204,35 @@
   transition: all .3s linear;
 }
 
+
+.footer__item-list {
+  padding: 10px 0;
+  margin-bottom: 15px;
+}
+
+.footer-contacts__item-name,
+.footer-contacts__item-phone,
+.footer-contacts__item-mail {
+  word-wrap: break-word;
+  max-width: 100%;
+}
+
+iframe {
+  margin-top: 20px;
+  display: block;
+}
+
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Відстань між елементами */
+}
+
+.footer__item-list {
+  position: relative;
+  z-index: 1;
+}
+
 .footer_item-social_truck  {
   margin: 0 47px 0 0;
 }
