@@ -1,663 +1,665 @@
 <!DOCTYPE html>
-<html lang="ua">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<html lang="uk" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>TimeDoors — Міжкімнатні двері</title>
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="icon" href="favicon/new.ico">
+</head>
+<body>
 
-    <title>&#9654;&nbsp;Міжкімнатні двері</title>
-    <!-- Подключаем CSS файл -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+  <!-- ═══ CLOCK STRIP ═══ -->
+  <div class="clock-strip">
+    <span id="clock-date">Завантаження...</span>
+    <span id="clock-time">00:00:00</span>
+  </div>
 
-    <!-- Подключение FAVICON -->
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon/new.ico">
+  <!-- ═══ HEADER ═══ -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <a href="#hero" class="logo-link nav-trigger" data-target="hero">
+        <img src="img/logo.png" alt="TimeDoors" class="logo">
+      </a>
 
-    <!-- JQUERY -->
-    <script src="script/jquery-3.4.1.min.js"></script>
-    <!-- СКРИПТЫ -->
-    <script src="script/script.js"></script>
-    <!-- SLICK-SLIDER -->
-    <script src="script/slick.min.js"></script>
-    <!-- Подключение jQuery плагина Masked Input -->
-    <script src="script/jquery.maskedinput.min.js"></script>
-    <!-- Подключение иконок FONT AWESOME -->
-    <script src="https://kit.fontawesome.com/ef844c3a38.js" crossorigin="anonymous"></script>
-  </head>
-  <body>
+      <nav class="desktop-nav">
+        <a class="desktop-nav-link active" data-target="hero" href="#hero">🏠 Головна</a>
+        <a class="desktop-nav-link" data-target="catalog" href="#catalog">🚪 Каталог</a>
+        <a class="desktop-nav-link" data-target="reviews" href="#reviews">⭐ Відгуки</a>
+        <a class="desktop-nav-link" data-target="team" href="#team">🔧 Монтаж</a>
+        <a class="desktop-nav-link" data-target="contacts" href="#contacts">📞 Контакти</a>
+      </nav>
 
-  <!-- Форма заказа дверей при нажатии кнопки КУПИТЬ -->
-  <div class="popup-wrapper__buy-door">
-    <div class="overlay"></div>
-    <div class="popup__buy-door">
-      <div class="popup__content">
-        <span class="popup__content-title">Викликати майстра за вимірами</span>
-        <p class="form-label">Заповніть форму і наш фахівець зв'яжеться з Вами.</p>
-        <!-- Форма -->
-        <form class="popup__form" action="mail.php" method="post">
-
-          <!-- Hidden Required Fields -->
-          <input type="hidden" name="project_name" value="Site Name">
-          <input type="hidden" name="admin_email" value="timedoors2023@gmail.com">
-          <input type="hidden" name="form_subject" value="Виклик майстра за вимірами">
-
-
-          <div class="popup__form-item-box">
-            <input class="popup__form-item Name" type="text" name="Name" value="" placeholder="*Ваше ім'я" required>
-          </div>
-          <div class="popup__form-item-box">
-            <input class="popup__form-item Phone"
-                   name="Phone"
-                   type="tel"
-                   placeholder="*Телефон"
-                   maxlength="50"
-                   autofocus="autofocus"
-                   required="required"
-                   value=""
-                   pattern="((\+38)?\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))">
-          </div>
-          <div class="popup__form-box-button">
-            <input class="popup__form-button" type="submit" name="Form-button" value="Надіслати заявку">
-          </div>
-        </form>
-
-        <p class="popup__note">Усі поля обов'язкові для заповнення</p>
-        <p class="popup__note">
-         Натискаючи на кнопку, ви даєте згоду на обробку своїх персональних даних
-          <a href="#" class="terms-use">Угода користувача</a>
-        </p>
+      <div class="header-actions">
+        <button class="theme-btn" id="theme-btn" aria-label="Змінити тему" title="Змінити тему">💡</button>
+        <a href="tel:+380975717373" class="call-btn">📞 Дзвонити</a>
       </div>
-      <div class="popup__btn-close">
-        &#128938;
+    </div>
+  </header>
+
+  <!-- ═══ MAIN ═══ -->
+  <main>
+
+    <!-- HERO -->
+    <section id="hero" class="section">
+      <div class="hero-bg"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-badge glass-badge">✨ Офіційний дистриб'ютор</div>
+        <h1 class="hero-title">Міжкімнатні<br>двері</h1>
+        <p class="hero-sub">Якість. Стиль. Надійність.</p>
+        <div class="hero-card glass-card">
+          <p class="hero-card-title">🎯 Безкоштовна консультація</p>
+          <div class="form-row">
+            <input type="text" class="glass-input" id="hero-name" placeholder="Ваше ім'я" autocomplete="name">
+            <input type="email" class="glass-input" id="hero-email" placeholder="E-mail" autocomplete="email">
+          </div>
+          <button class="btn-primary" onclick="openPopup('consultation')">Отримати консультацію</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item glass-card">
+            <span class="stat-num">500+</span>
+            <span class="stat-label">Проектів</span>
+          </div>
+          <div class="stat-item glass-card">
+            <span class="stat-num">5 ★</span>
+            <span class="stat-label">Рейтинг</span>
+          </div>
+          <div class="stat-item glass-card">
+            <span class="stat-num">1 рік</span>
+            <span class="stat-label">Гарантія</span>
+          </div>
+        </div>
       </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="section section-padded">
+      <div class="container">
+        <div class="section-label">🏢 Про нас</div>
+        <h2 class="section-title">Компанія<br>«TimeDoors»</h2>
+        <div class="about-grid">
+          <div class="about-text-card glass-card">
+            <p class="about-text">
+              <strong>TimeDoors</strong> — професійний постачальник послуг з прихованих та міжкімнатних дверей. 
+              Наші двері забезпечують безшумне закриття, надійний захист та бездоганний зовнішній вигляд.
+            </p>
+            <p class="about-text">
+              Ми використовуємо лише найкращі матеріали та технології для виготовлення продуктів, щоб забезпечити 
+              надійність та тривалий термін служби. Наша команда з радістю допоможе вибрати двері, 
+              які ідеально підходять для вашого дому або бізнесу.
+            </p>
+            <div class="about-actions">
+              <button class="btn-primary" onclick="openPopup('measure')">📐 Викликати замірника</button>
+              <a href="#catalog" class="btn-secondary nav-trigger" data-target="catalog">🚪 Дивитись каталог</a>
+            </div>
+          </div>
+          <div class="about-promo glass-card">
+            <div class="promo-icon">🚗</div>
+            <h3 class="promo-title">Безкоштовний виїзд</h3>
+            <p class="promo-text">Виїзд на об'єкт по місту для замірів — <strong>безкоштовно</strong></p>
+            <div class="promo-highlight">⏱️ Заощаджуйте 80% часу на підбір дверей!</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATALOG -->
+    <section id="catalog" class="section section-padded">
+      <div class="container">
+        <div class="section-label">🚪 Наші роботи</div>
+        <h2 class="section-title">Каталог дверей</h2>
+
+        <!-- Filter Tabs -->
+        <div class="filter-tabs glass-card">
+          <button class="filter-btn active" data-filter="all">Всі</button>
+          <button class="filter-btn" data-filter="hit">🔥 Хіт</button>
+          <button class="filter-btn" data-filter="new">🆕 Новинки</button>
+        </div>
+
+        <div class="catalog-grid" id="catalog-grid">
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/1.jpg" alt="CORTES PRIMA ALUM" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Cortes Prima Alum</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">8 500 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/2.jpg" alt="FRESCA COLOMBO" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Fresca Colombo</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">8 340 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/3.jpg" alt="FRESCA MIKELA" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Fresca Mikela</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">8 340 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/4.jpg" alt="LOFT ARTE" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Arte</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">13 848 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/5.jpg" alt="LOFT AURA" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Aura</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">13 848 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="new">
+            <div class="product-badge new">🆕 Новинка</div>
+            <div class="product-img-wrap">
+              <img src="img/6.jpg" alt="LOFT COSMO" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Cosmo</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">14 538 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/7.jpg" alt="LOFT LAGO" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Lago</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">15 288 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/8.jpg" alt="LOFT LAGO 2" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Lago 2</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">15 288 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/9.jpg" alt="LOFT LAGO 3" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Lago 3</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">15 288 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/10.jpg" alt="LOFT OLIMPIA" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Olimpia</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">15 288 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/11.jpg" alt="LOFT OLIMPIA 2" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Olimpia 2</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">15 288 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/12.jpg" alt="LOFT OLIMPIA 3" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Olimpia 3</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">15 288 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/13.jpg" alt="CORTES PRIMA" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Cortes Prima</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">13 218 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/14.jpg" alt="LOFT BERTA GL" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Berta GL</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">14 538 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/15.jpg" alt="LOFT BERTA V" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Berta V</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">12 990 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card glass-card" data-badge="hit">
+            <div class="product-badge hit">🔥 Хіт продаж</div>
+            <div class="product-img-wrap">
+              <img src="img/16.jpg" alt="LOFT PORTO" class="product-img" loading="lazy">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Loft Porto</h3>
+              <p class="product-stock">✅ У наявності</p>
+              <div class="product-footer">
+                <span class="product-price">15 324 ₴</span>
+                <button class="btn-buy" onclick="openPopup('buy')">Купити</button>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /catalog-grid -->
+
+        <div class="catalog-cta">
+          <button class="btn-primary" onclick="openPopup('measure')">📐 Замовити обмір безкоштовно</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section id="reviews" class="section section-padded">
+      <div class="container">
+        <div class="section-label">⭐ Відгуки</div>
+        <h2 class="section-title">Нас рекомендують</h2>
+
+        <div class="reviews-carousel">
+          <div class="reviews-track" id="reviews-track">
+
+            <div class="review-card glass-card">
+              <div class="review-header">
+                <img src="img/comment-1.jpeg" alt="Олексій Донець" class="review-avatar" loading="lazy">
+                <div class="review-meta">
+                  <h4 class="review-name">Олексій Донець</h4>
+                  <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                  <span class="review-date">15.01.2023</span>
+                </div>
+              </div>
+              <p class="review-text">
+                Хочу висловити щиру подяку фірмі «TimeDoors» за встановлення міжкімнатних дверей в нашому будинку. Бригада з 2-х чоловік виконала роботу з демонтажу старих дверей та встановлення нових з великою увагою до деталей. Дуже задоволені якістю та професіоналізмом!
+              </p>
+            </div>
+
+            <div class="review-card glass-card">
+              <div class="review-header">
+                <img src="img/comment-2.jpeg" alt="Максим Запорожець" class="review-avatar" loading="lazy">
+                <div class="review-meta">
+                  <h4 class="review-name">Максим Запорожець</h4>
+                  <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                  <span class="review-date">22.01.2023</span>
+                </div>
+              </div>
+              <p class="review-text">
+                Велике спасибі фірмі «TimeDoors»! Замовляв двері у свій офіс і був здивований тим, наскільки оперативно спрацювали співробітники. Буквально в день дзвінка приїхав замірник і зробив попередній розрахунок.
+              </p>
+            </div>
+
+            <div class="review-card glass-card">
+              <div class="review-header">
+                <img src="img/no-img-comment.jpg" alt="Леонід Касаткін" class="review-avatar" loading="lazy">
+                <div class="review-meta">
+                  <h4 class="review-name">Леонід Касаткін</h4>
+                  <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                  <span class="review-date">19.02.2023</span>
+                </div>
+              </div>
+              <p class="review-text">
+                Замовляв приховані двері моделі XN у свій кабінет. Такого захоплення я ще не відчував! Хоч і не замок, але почуватися в таємній кімнаті вдається відмінно. Якість монтажу — на висоті.
+              </p>
+            </div>
+
+            <div class="review-card glass-card">
+              <div class="review-header">
+                <img src="img/comment-3.jpeg" alt="Віктор Комаров" class="review-avatar" loading="lazy">
+                <div class="review-meta">
+                  <h4 class="review-name">Віктор Комаров</h4>
+                  <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                  <span class="review-date">12.03.2023</span>
+                </div>
+              </div>
+              <p class="review-text">
+                Більш ніж задоволений вибором цього магазину. Найширший асортимент, привабливе поводження з клієнтом. Швидкі обміри і не менш швидка доставка. Дякую!
+              </p>
+            </div>
+
+            <div class="review-card glass-card">
+              <div class="review-header">
+                <img src="img/no-img-comment.jpg" alt="Олексій Мілевський" class="review-avatar" loading="lazy">
+                <div class="review-meta">
+                  <h4 class="review-name">Олексій Мілевський</h4>
+                  <div class="review-stars">⭐⭐⭐⭐⭐</div>
+                  <span class="review-date">11.04.2023</span>
+                </div>
+              </div>
+              <p class="review-text">
+                Велике спасибі фірмі «TimeDoors»! Якість дверей перевершила очікування. Монтажники працювали акуратно та швидко. Рекомендую всім, хто шукає надійні та красиві двері!
+              </p>
+            </div>
+
+          </div><!-- /reviews-track -->
+
+          <div class="carousel-controls">
+            <button class="carousel-btn" id="rev-prev" aria-label="Попередній">‹</button>
+            <div class="carousel-dots" id="rev-dots"></div>
+            <button class="carousel-btn" id="rev-next" aria-label="Наступний">›</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section id="team" class="section section-padded">
+      <div class="container">
+        <div class="section-label">🔧 Команда</div>
+        <h2 class="section-title">Наші монтажники</h2>
+        <div class="team-grid">
+
+          <div class="team-card glass-card">
+            <div class="team-img-wrap">
+              <img src="img/Vova.jpg" alt="Володимир" class="team-img" loading="lazy">
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">👷 Володимир</h3>
+              <span class="team-role">Провідний монтажник</span>
+              <p class="team-bio">
+                Моє ім'я — Володимир, і я є монтажником з великим досвідом у сфері монтажу різних видів конструкцій та систем. Завжди виконую роботу з максимальною точністю та увагою до деталей. Мої послуги забезпечують високу якість і точність, що дозволяє клієнтам бути впевненими в тому, що їхні проекти будуть виконані професійно і вчасно.
+              </p>
+              <div class="team-badges">
+                <span class="team-badge">⭐ Досвідчений</span>
+                <span class="team-badge">🎯 Точний</span>
+                <span class="team-badge">⚡ Швидкий</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="team-card glass-card">
+            <div class="team-img-wrap team-img-placeholder">
+              <span class="team-placeholder-icon">👷</span>
+            </div>
+            <div class="team-info">
+              <h3 class="team-name">👷 Монтажник</h3>
+              <span class="team-role">Майстер монтажу</span>
+              <p class="team-bio">
+                Наша команда постійно зростає. Ми набираємо лише досвідчених спеціалістів, які поділяють наші цінності якості та клієнтоорієнтованості. Кожен монтажник проходить навчання та атестацію.
+              </p>
+              <div class="team-badges">
+                <span class="team-badge">🏆 Сертифікований</span>
+                <span class="team-badge">🛡️ Надійний</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ADVANTAGES -->
+    <section id="advantages" class="section section-padded">
+      <div class="container">
+        <div class="section-label">💎 Переваги</div>
+        <h2 class="section-title">Чому обирають нас?</h2>
+        <div class="advantages-grid">
+
+          <div class="adv-card glass-card">
+            <div class="adv-icon">🛡️</div>
+            <h3 class="adv-title">Надійно</h3>
+            <p class="adv-desc">Гарантія на двері — 1 рік. Гарантія на монтаж — 1 рік. Післягарантійне обслуговування.</p>
+          </div>
+
+          <div class="adv-card glass-card">
+            <div class="adv-icon">🎯</div>
+            <h3 class="adv-title">Зручно</h3>
+            <p class="adv-desc">Повний комплекс сервісу від заміру до встановлення. Безкоштовний виїзд по місту.</p>
+          </div>
+
+          <div class="adv-card glass-card">
+            <div class="adv-icon">✨</div>
+            <h3 class="adv-title">Якісно</h3>
+            <p class="adv-desc">Використовуємо лише преміальні матеріали від перевірених виробників.</p>
+          </div>
+
+          <div class="adv-card glass-card">
+            <div class="adv-icon">💰</div>
+            <h3 class="adv-title">Доступно</h3>
+            <p class="adv-desc">Тільки прямі поставки від виробників. Офіційний дистриб'ютор — ціни без посередників.</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTS -->
+    <section id="contacts" class="section section-padded">
+      <div class="container">
+        <div class="section-label">📞 Контакти</div>
+        <h2 class="section-title">Зв'яжіться з нами</h2>
+        <div class="contacts-grid">
+
+          <div class="contacts-info glass-card">
+            <div class="contact-row">
+              <span class="contact-icon">📞</span>
+              <div>
+                <p class="contact-label">Телефон</p>
+                <a href="tel:+380975717373" class="contact-value">+380 97 571 73 73</a><br>
+                <a href="tel:+380735717373" class="contact-value">+380 73 571 73 73</a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-icon">📧</span>
+              <div>
+                <p class="contact-label">E-mail</p>
+                <a href="mailto:timedoors2023@gmail.com" class="contact-value">timedoors2023@gmail.com</a>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-icon">🕐</span>
+              <div>
+                <p class="contact-label">Графік роботи</p>
+                <span class="contact-value">08:00 — 17:00 (без вихідних)</span>
+                <p class="contact-note">⚠️ За попередньою домовленістю</p>
+              </div>
+            </div>
+            <div class="contact-row">
+              <span class="contact-icon">📍</span>
+              <div>
+                <p class="contact-label">Адреса</p>
+                <span class="contact-value">Вхід з правої сторони будівлі, 2 поверх</span>
+              </div>
+            </div>
+
+            <div class="social-row">
+              <a href="https://www.olx.ua/d/uk/obyavlenie/dver-prihovan-pd-ozdoblennya-IDRIG69.html" target="_blank" rel="noopener" class="social-btn" title="OLX">🛒</a>
+              <a href="https://instagram.com/timedoors2023" target="_blank" rel="noopener" class="social-btn" title="Instagram">📸</a>
+              <a href="viber://chat?number=380735717373" target="_blank" rel="noopener" class="social-btn" title="Viber">💬</a>
+              <a href="https://t.me/+380735717373" target="_blank" rel="noopener" class="social-btn" title="Telegram">✈️</a>
+            </div>
+
+            <button class="btn-primary btn-full" onclick="openPopup('measure')">📐 Замовити безкоштовний обмір</button>
+          </div>
+
+          <div class="contacts-map glass-card">
+            <iframe
+              src="https://www.google.com/maps/d/u/0/embed?mid=1k614r8CkRzB80dGS9j4ynpbsE1OuUd4&ehbc=2E312F"
+              width="100%" height="280" style="border:0; border-radius:14px;"
+              allowfullscreen loading="lazy" title="TimeDoors на карті">
+            </iframe>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="footer">
+    <div class="footer-inner container">
+      <a href="#hero" class="nav-trigger" data-target="hero">
+        <img src="img/logo.png" alt="TimeDoors" class="footer-logo">
+      </a>
+      <p class="footer-copy">© 2024 TimeDoors. Усі права захищені.</p>
+      <a href="privacy.html" class="footer-link" target="_blank">Політика конфіденційності</a>
+    </div>
+  </footer>
+
+  <!-- ═══ BOTTOM NAV (mobile) ═══ -->
+  <nav class="bottom-nav" id="bottom-nav">
+    <div class="bottom-nav-indicator" id="nav-indicator"></div>
+    <button class="tab-btn active" data-target="hero">
+      <span class="tab-icon">🏠</span>
+      <span class="tab-label">Головна</span>
+    </button>
+    <button class="tab-btn" data-target="catalog">
+      <span class="tab-icon">🚪</span>
+      <span class="tab-label">Каталог</span>
+    </button>
+    <button class="tab-btn" data-target="reviews">
+      <span class="tab-icon">⭐</span>
+      <span class="tab-label">Відгуки</span>
+    </button>
+    <button class="tab-btn" data-target="team">
+      <span class="tab-icon">🔧</span>
+      <span class="tab-label">Монтаж</span>
+    </button>
+    <button class="tab-btn" data-target="contacts">
+      <span class="tab-icon">📞</span>
+      <span class="tab-label">Контакти</span>
+    </button>
+  </nav>
+
+  <!-- ═══ POPUP OVERLAY ═══ -->
+  <div class="popup-overlay" id="popup-overlay" role="dialog" aria-modal="true">
+    <div class="popup-card glass-card">
+      <button class="popup-close" onclick="closePopup()" aria-label="Закрити">✕</button>
+      <div class="popup-icon" id="popup-icon">📐</div>
+      <h3 class="popup-title" id="popup-title">Викликати замірника</h3>
+      <p class="popup-sub" id="popup-sub">Заповніть форму і наш фахівець зв'яжеться з Вами</p>
+      <form class="popup-form" action="mail.php" method="post" id="popup-form">
+        <input type="hidden" name="project_name" value="TimeDoors">
+        <input type="hidden" name="admin_email" value="timedoors2023@gmail.com">
+        <input type="hidden" name="form_subject" id="form-subject" value="Виклик майстра">
+        <input class="glass-input" type="text" name="Name" placeholder="✏️ Ваше ім'я" required>
+        <input class="glass-input" type="tel" name="Phone" placeholder="📞 Телефон" required
+               pattern="((\+38)?\(?\d{3}\)?[\s\.-]?(\d{7}|\d{3}[\s\.-]\d{2}[\s\.-]\d{2}|\d{3}-\d{4}))">
+        <button class="btn-primary btn-full" type="submit">Надіслати заявку</button>
+      </form>
+      <p class="popup-note">Натискаючи кнопку, ви даєте згоду на обробку персональних даних. <a href="privacy.html" target="_blank">Угода</a></p>
     </div>
   </div>
 
+  <!-- ═══ BACK TO TOP ═══ -->
+  <button class="back-to-top" id="back-top" aria-label="Вгору">↑</button>
 
-  <style>
-    .header-logo {
-        max-width: 50%;
-        height: auto;
-    }
-
-    @media screen and (max-width: 468px) {
-        .header-logo {
-            max-width: 50%;
-        }
-    }
-
-    @media screen and (max-width: 480px) {
-        .header-logo {
-            max-width: 30%;
-        }
-    }
-</style>
-
-  <a href="#" class="back-to-top"></a>
-    <header class="header">
-      <a href="#">
-        <img src="img/logo.png" alt="logo" class="header-logo">
-      </a>
-      <nav class="header__navigation">
-        <ul class="nav__list">
-          <li class="nav__list-item">
-            <a href="#Main" class="anchor">Головна</a>
-          </li>
-          <li class="nav__list-item">
-            <a href="#About-us" class="anchor">Про&nbsp;нас</a>
-          </li>
-          <li class="nav__list-item">
-            <a href="#Popular" class="anchor">Популярне</a>
-          </li>
-          <li class="nav__list-item">
-            <a href="#Shares" class="anchor">Монтажники</a>
-          </li>
-          <li class="nav__list-item">
-            <a href="#Advantages" class="anchor">Переваги</a>
-          </li>
-          <li class="nav__list-item">
-            <a href="#Contacts" class="anchor">Контакти</a>
-          </li>
-        </ul>
-      </nav>
-      <button class="burger">
-        <span></span>
-      </button>
-    </header>
-
-    <main>
-      <section class="main-block" id="Main">
-        <h2 class="visually-hidden">Міжкімнатні двері</h2>
-        <div class="section-image__container">
-          <div class="section-image"></div>
-        </div>
-        <div class="section-image__blackout"></div>
-        <div class="main-block__container-opacity"></div>
-        <div class="main-block__container-content">
-          <h3 class="main-block__container-content_title">
-            Міжкімнатні двері
-          </h3>
-          <div class="main-block__form-container">
-            <form class="main-block__form" action="mail.php" method="post">
-              <!-- Hidden Required Fields -->
-              <input type="hidden" name="project_name" value="Site Name">
-              <input type="hidden" name="admin_email" value="timedoors2023@gmail.com">
-              <input type="hidden" name="form_subject" value="Консультація">
-
-
-              <span class="main-block__form_title">
-                Залиште заявку на безкоштовну консультацію!
-              </span>
-              <input class="main-block__form-name" type="text" name="user_name_cons" placeholder="Введіть Ваше ім'я" value="" required>
-              <input class="main-block__form-mail" type="email" name="user_mail-cons" placeholder="Введіть Ваш e-mail" value="" required>
-             
-              <button class="main-block__form-submit" type="submit" name="button">Отримати консультацію</button>
-            </form>
-          </div>
-        </div>
-      </section>
-
-
-      <section class="about-us" id="About-us">
-        <h2 class="visually-hidden">Про компанію</h2>
-        <div class="about-us__text">
-          <h2 class="about-us__title">Про компанію &laquo;TimeDoors&raquo;</h2>
-          <span class="about-us__description">
-            Компанія TimeDoors - це професійний постачальник послуг з прихованих дверей. 
-            Наші двері забезпечують безшумне та беззаперечне закриття, дозволяючи нашим клієнтам захистити приватні кімнати від небажаних відвідувачів або навіть від шкідливих шумів. 
-            Ми використовуємо тільки найкращі матеріали та технології для виготовлення наших продуктів, щоб забезпечити надійність та тривалий термін служби. Наша команда професіоналів з радістю допоможе вам вибрати двері, які ідеально підходять для вашого дому або бізнесу, забезпечуючи неперевершений рівень приватності та забезпечення ваших потреб у збереженні конфіденційності. 
-            Довірте свою конфіденційність нам, і ми зробимо все можливе, щоб забезпечити вам спокій та комфорт.
-          </span>
-        </div>
-        <div class="about-us__img-container">
-
-        </div>
-      </section>
-
-
-      <section class="quiz">
-        <h2 class="visually-hidden">Допомога</h2>
-        <div class="quiz-container">
-          <span class="quiz-container__title">
-            Виїзд&nbsp;на об'єкт по місту, для замірів&nbsp;– безкоштовно.
-          </span>
-          <span class="quiz-container__text">
-            <h3>Заощаджуйте 80% часу на підбір дверей!</h3>
-          </span>
-          
-        </div>
-      </section>
-
-
-      <section class="popular-poducts" id="Popular">
-        <h2 class="visually-hidden">Популярні товари</h2>
-        <div class="popular-poducts__container-fixed">
-          <h2 class="popular-poducts__title">Наші роботи з встановлення дверей.</h2>
-          <div class="popular-poducts__grid-box catalog">
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/1.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ CORTES PRIMA ALUM</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">8500 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/2.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">ДВЕРІ МІЖКІМНАТНІ FRESCA COLOMBO</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">8340 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/3.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">FRESCA MIKELA БЕЗ МОЛДИНГУ</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">8340 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/4.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">LOFT ARTE</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">13 848 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/5.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ LOFT AURA</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">13 848 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Новинка
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/6.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ LOFT COSMO</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">14 538 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/7.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ LOFT LAGO</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">15 288 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/8.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ LOFT LAGO 2</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">15 288	&#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/9.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ LOFT LAGO 3</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">15 288 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/10.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">ДВЕРІ LOFT OLIMPIA</div>
-              <div class="catalog-item__stock-availability">&#10004;  У наявності на складі</div>
-              <div class="catalog-item__cost">15 288	&#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/11.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ LOFT OLIMPIA 2</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">15 288 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/12.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ LOFT OLIMPIA 3</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">15 288	&#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/13.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ CORTES PRIMA</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">13 218 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/14.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ LOFT BERTA GL</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">14 538 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/15.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ LOFT BERTA V</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">12 990 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-            <div class="popular-poducts__grid-item catalog-item">
-              <div class="catalog-item__bestseller">
-                Хіт продаж
-              </div>
-              <div class="catalog-item__img-box">
-                <img src="img/16.jpg" alt="#" class="catalog-item__img" style="width: 400px; height: 400px;">
-              </div>
-              <div class="catalog-item__name">МІЖКІМНАТНІ ДВЕРІ LOFT PORTO</div>
-              <div class="catalog-item__stock-availability">&#10004; У наявності на складі</div>
-              <div class="catalog-item__cost">15 324 &#8372;</div>
-              <a href="#" class="catalog-item__buy">Купити</a>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-
-      <section class="shares" id="Shares">
-        <h2 class="visually-hidden">Монтажники</h2>
-        <h2 class="shares__title">Монтажники</h2>
-        <div class="shares__container-fixed">
-          <div class="shares__item">
-            <img src="img/Vova.jpg" alt="promo" class="shares__item-img">
-            <div class="shares__item-description">
-              <a href="#" class="shares__item-description_name">Володимир</a>
-              <span class="shares__item-description_date">Професіонал своєї справи</span>
-              <p class="shares__item-description_desc">
-                Моє ім'я - Володимир, і я є монтажником з великим досвідом у сфері монтажу різних видів конструкцій та систем. 
-                У моєму житті монтаж став не просто професією, а справжньою пасією. Я завжди стараюся виконувати свою роботу з максимальною точністю та увагою до деталей, щоб замовники залишалися задоволені результатом.
-                Мої професійні здібності розвивалися впродовж багатьох років роботи в різних компаніях, де я здобув багато досвіду в монтажі різних систем і конструкцій. 
-                З часом я вирішив піти в бізнес і заснував власну компанію з монтажу.
-                Мої послуги з монтажу забезпечують високу якість і точність, що дозволяє моїм клієнтам бути впевненими в тому, що їхні проекти будуть виконані професійно і вчасно.
-                Я завжди прагну розуміти потреби моїх клієнтів та докладаю максимум зусиль, щоб виконати їхні вимоги.
-                Найбільше задоволення я отримую, коли бачу задоволеність своїх клієнтів, коли вони отримують від мене якісні послуги з монтажу та ремонту. 
-                Я завжди прагну до розвитку і покращення своїх професійних навичок, щоб допомогти своїм клієнтам отримати максимальну якість та задоволення від своїх проектів.
-              </p>
-            </div>
-          </div>
-          <div class="shares__item">
-            <img src="img/promo_new0a.jpg" alt="promo" class="shares__item-img">
-            <div class="shares__item-description">
-              <a href="#" class="shares__item-description_name">Монтажник</a>
-              <span class="shares__item-description_date">info</span>
-              <p class="shares__item-description_desc">
-                New info waiting...<br>
-                New info
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      <section class="comment">
-        <h2 class="visually-hidden">Рекомендації людей</h2>
-        <div class="comment__container-fixed">
-          <h3 class="comment__title">Нас рекомендують</h3>
-          <div class="comment__slider">
-
-            <div class="comment__slider-item">
-              <div class="comment__slider-item_img-box">
-                <img src="img/comment-1.jpeg"  class="comment__slider-item_img">
-              </div>
-              <div class="comment__slider-item_review">
-                <h4 class="review__name">Олексій Донець</h4>
-                <span class="review__description">
-                  Хочу висловити щиру подяку фірмі "TimeDoors" та її співробітникам за встановлення міжкімнатних дверей в нашому будинку на вулиці Шевченка 13.07. 
-                  Бригада з 2-х чоловік виконала роботу з демонтажу старих дверей та встановлення нових з великою увагою до деталей і працювала цілий день. Дуже задоволені якістю виконаної роботи та професіоналізмом майстрів.
-                </span>
-                <span class="review__time">15.01.2023</span>
-              </div>
-            </div>
-
-            <div class="comment__slider-item">
-              <div class="comment__slider-item_img-box">
-                <img src="img/comment-2.jpeg" class="comment__slider-item_img">
-              </div>
-              <div class="comment__slider-item_review">
-                <h4 class="review__name">Максим Запорожець</h4>
-                <span class="review__description">
-                  Велике спасибі фірмі "TimeDoors"! Замовляв двері у свій офіс, і був здивований тим, наскільки оперативно спрацювали співробітники. Буквально в день дзвінка приїхав замірник і зробив попередній розрахунок. Хочу приділити окрему увагу дизайну моделі, а також ...
-                </span>
-                <span class="review__time">22.01.2023</span>
-              </div>
-            </div>
-
-            <div class="comment__slider-item">
-              <div class="comment__slider-item_img-box">
-                <img src="img/no-img-comment.jpg" class="comment__slider-item_img">
-              </div>
-              <div class="comment__slider-item_review">
-                <h4 class="review__name">Леонід Касаткін</h4>
-                <span class="review__description">
-                  Замовляв приховані двері моделі XN у свій кабінет. Такого захоплення я ще не відчував! Завжди мріяв почуватися так, немов перебуваю в таємній кімнаті якогось готичного замку, але тут - хоч і не замок, але сховатися від співробітників відмінно вдасться...
-                </span>
-                <span class="review__time">19.02.2023</span>
-              </div>
-            </div>
-
-            <div class="comment__slider-item">
-              <div class="comment__slider-item_img-box">
-                <img src="img/comment-3.jpeg"  class="comment__slider-item_img">
-              </div>
-              <div class="comment__slider-item_review">
-                <h4 class="review__name">Віктор Комаров</h4>
-                <span class="review__description">
-                  Більш ніж задоволений вибором цього магазину. Найширший асортимент, привабливе поводження з клієнтом. Швидкі обміри і не менш швидка доставка. Дякую!
-                </span>
-                <span class="review__time">12.03.2023</span>
-              </div>
-            </div>
-
-            <div class="comment__slider-item">
-              <div class="comment__slider-item_img-box">
-                <img src="img/no-img-comment.jpg" class="comment__slider-item_img">
-              </div>
-              <div class="comment__slider-item_review">
-                <h4 class="review__name">Олексій Мілевський</h4>
-                <span class="review__description">
-                  Велике спасибі фірмі "DoorsTime"! Замовляв двері у свій офіс, і був здивований тим, наскільки оперативно спрацювали співробітники. Буквально в день дзвінка приїхав замірник і зробив попередній розрахунок. Хочу приділити окрему увагу дизайну моделі, а також ...
-                </span>
-                <span class="review__time">11.04.2023</span>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <section class="advantages" id="Advantages">
-        <h2 class="visually-hidden">Переваги</h2>
-        <div class="advantages-container">
-          <h2 class="advantages__title">Чому обирають нас для встановлення дверей?</h2>
-        </div>
-        <div class="advantages__slider">
-          <div class="advantages__item">
-            <div class="advantages__item_img">
-              <img src="img/advantages-1.png" alt="Надійно">
-            </div>
-            <div class="advantages__item_text">
-              <p class="advantages__item_name">Надійно</p>
-              <p class="advantages__item_desc">
-                Гарантія на двері становить 1 рік,<br>
-               а гарантія на монтаж - також 1 рік<br>
-             Післягарантійне обслуговування <br>
-                сервіс.
-              </p>
-            </div>
-          </div>
-
-          <div class="advantages__item">
-            <div class="advantages__item_img">
-              <img src="img/advantages-2.png" alt="Зручно">
-            </div>
-            <div class="advantages__item_text">
-              <p class="advantages__item_name">Зручно</p>
-              <p class="advantages__item_desc">
-                Повний комплекс сервісу <br>
-
-              </p>
-            </div>
-          </div>
-
-          <div class="advantages__item">
-            <div class="advantages__item_img">
-              <img src="img/advantages-3.png" alt="Якісно">
-            </div>
-            <div class="advantages__item_text">
-              <p class="advantages__item_name">Якісно</p>
-              <p class="advantages__item_desc">
-             
-              </p>
-            </div>
-          </div>
-
-
-          <div class="advantages__item">
-            <div class="advantages__item_img">
-              <img src="img/advantages-4.png" alt="Доступно">
-            </div>
-            <div class="advantages__item_text">
-              <p class="advantages__item_name">Доступно</p>
-              <p class="advantages__item_desc">
-                Тільки прямі поставки <br>
-                від виробників . <br>
-                Офіційний дистриб'ютор  <br>
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-    </main>
-    
-    <footer class="footer" id="Contacts">
-      <div class="footer__container">
-        <div class="footer__item">
-          <ul class="footer__item-contacts">
-            
-          <li class="footer__item-list">
-              <span class="footer-contacts__item-name">
-                Телефон:
-              </span>
-              <a class="footer-contacts__item-phone" href="tel:+380975717373">
-                +380975717373,
-              </a>
-              <a class="footer-contacts__item-phone" href="tel:+380735717373">
-                +380735717373
-              </a>
-            </li>
-            <li class="footer__item-contacts_mail footer__item-list">
-              <span class="footer-contacts__item-name">
-                E-mail:
-              </span>
-              <a class="footer-contacts__item-mail" href="mailto:timedoors2023@gmail.com">
-                <strong>timedoors2023@gmail.com</strong>
-              </a>
-            </li>
-            <li class="footer__item-contacts_info footer__item-list">
-              <span class="footer-contacts__item-name">
-                Графік роботи:
-              </span>
-              <span class="footer-contacts__item-time">
-                <strong>з 08:00 до 17:00 (Без вихідних)</strong>
-                <p style="color: white; font-size: 1.0em; line-height: 1.0; text-align: left; font-weight: bold;">&#x2757;за попередньою домовленістю&#x2757;</p>
-              </span>
-            </li>
-          </ul>
-          <p style="color: white; font-size: 1.0em; line-height: 1.0; text-align: left; font-weight: bold;">&#x2757;(вхід з правої сторони будівлі, 2 поверх)&#x2757;</p>
-          <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1k614r8CkRzB80dGS9j4ynpbsE1OuUd4&ehbc=2E312F" width="380" height="190"></iframe>
-        </div>
-        
-        <div class="footer__item -center">
-          <a href="#" class="footer__item-logo">
-            <img src="img/logo.png" alt="">
-          </a>
-          <div class="footer_item-social">
-            <div class="footer_social">
-              <div class="footer_social-row">
-                <a href="https://www.olx.ua/d/uk/obyavlenie/dver-prihovan-pd-ozdoblennya-IDRIG69.html" target="_blank" class="footer_item-social_truck social__item" style="margin-left: 8px; margin-right: 8px;">
-                  <i class="fa fa-2x fa-truck"></i>
-                </a>
-                <a href="https://instagram.com/timedoors2023" target="_blank" class="footer_item-social_inst social__item" style="margin-left: 8px; margin-right: 8px;">
-                  <i class="fab fa-2x fa-instagram"></i>
-                </a>
-                <a href="viber://chat?number=380735717373" target="_blank" class="footer_item-social_viber social__item" style="margin-left: 8px; margin-right: 8px;">
-                  <i class="fab fa-2x fa-viber"></i>
-                </a>
-                <a href="https://t.me/+380735717373" target="_blank" class="footer_item-social_telegram social__item" style="margin-left: 8px; margin-right: 8px;">
-                  <i class="fab fa-2x fa-telegram"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        
-        
-       
-        <div class="footer__item">
-          <a href="privacy.html" class="footer_item-police" target="_blank">
-            Політика конфіденційності
-          </a>
-          <span class="footer__item-copyright">
-            © 2023. Усі права захищені.
-          </span>
-        </div>
-      </div>
-    </footer>
-    
-    <script src="http://localhost:35729/livereload.js"></script>
-  </body>
+  <script src="scripts/script.js"></script>
+</body>
 </html>
